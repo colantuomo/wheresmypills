@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Tileset
+    uniqueID: 1170697533
+    locked: 0

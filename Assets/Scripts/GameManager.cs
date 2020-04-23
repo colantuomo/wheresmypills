@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     private bool isDeath;
     private Vector3 lastRespawn;
     private int lastLevel = 1;
+
+    public bool hasRespawn;
     void Start()
     {
         lastRespawn = level1SpawnPoint.position;
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        hasRespawn = playerPosition.position == lastRespawn;
         if(Time.time > timer)
         {
             timer = Time.time + timerDelay;
@@ -76,6 +79,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        hasRespawn = true;
         transitionAnim.SetTrigger("makeTransition");
         playerPosition.position = lastRespawn;
     }
